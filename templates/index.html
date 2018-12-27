@@ -2,12 +2,132 @@
 
 {% block title %}Home Page:{% endblock %}
 
+{% block styles %}
+<link href="{{url_for('static', filename = 'bootstrap.flatly.min.css')}}" rel="stylesheet">
+<style>
+.border-primary{
+    border: 1px solid gray;
+    border-radius: 5px;
+}
+.centeredStyle{
+    display: flex;
+    justify-content: center;
+}
+.noBackground{
+    background-color: transparent !important;
+}
+.mainContainer{
+width: 100%;
+display: flex;
+flex-direction: column;
+justify-content: center;
+
+
+}
+
+
+.grid-container {
+display: grid;
+grid-template-columns: 20% 60% 20%;
+grid-template-rows: auto auto auto;
+grid-template-areas: "LeftSideBar CenterArea RightSideBar" "LeftSideBar CenterArea RightSideBar" "LeftSideBar CenterArea RightSideBar";
+grid-column-gap: 5px;
+}
+
+.LeftSideBar {
+  grid-area: LeftSideBar;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.bannerImage{
+    max-width: 100%;
+}
+.CenterArea { grid-area: CenterArea; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.RightSideBar { grid-area: RightSideBar; 
+display: flex;
+justify-content: center;
+align-items: center;
+}
+.bannerPicture{
+    opacity: 0.8;
+    
+}
+
+</style>
+
+{% endblock %}
+
 {% block content %}
 
-<div class="jumbotron">
-    <h1 class="display-3">This is a jumbotron container</h1>
+<div class="mainContainer">
+    <div class="bannerPicture">
+        <img src="../static/images/bannerPlitvice.jpg" class="bannerImage" alt="bannerPlitvice">
+    </div>
+<div class="grid-container">
+    <div class="LeftSideBar">
+
+        <div class="LeftInfo">
+               
+
+                <div class="card mb-3 whiteFont" style="max-width: 20rem;">
+                    <div class="card-header">Find your next location!</div>
+                    <div class="card-body">
+                      <h4 class="card-title">You can use the map here</h4>
 
 
+                      <p class="card-text"></p>
+                      
+
+                    </div>
+                  </div>
+                  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d45815.939840827756!2d15.213884740627458!3d44.13501190298983!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4761fa62d2c0b88f%3A0x12323e1c13f40784!2sZadar!5e0!3m2!1sen!2shr!4v1545916088847" width="100%" height="450" frameborder="0" style="border: 1px solid gray; border-radius: 3px;" allowfullscreen></iframe>
+                  
+
+
+        </div>
+    </div>
+    <div class="CenterArea">
+
+        <div class="jumbotron noBackground">
+            <h1 class="display-3 whiteFont">WELCOME</h1>
+            <p>All you need for your outdoor adventure!</p>
+        
+        </div>
+
+    </div>
+    <div class="RightSideBar whiteFont">
+        
+            <div class="card mb-3 whiteFont" style="max-width: 20rem;">
+                    <div class="card-header">Vrijeme</div>
+                    <div class="card-body">
+                      <h4 class="card-title">{{ jsonWeather.name }}</h4>
+                      <img src="http://openweathermap.org/img/w/{{jsonWeather.weather[0].icon }}.png">
+                      <p class="card-text">{{jsonWeather.weather[0].description | capitalize }}
+                        <br>
+                        Temperatura: {{jsonWeather.main.temp | int}} C°
+                        <br>
+                        Vlažnost zraka: {{jsonWeather.main.humidity}}%
+                    
+                    
+                      </p>
+                    </div>
+                  </div>
+        
+                      
+
+    </div>
 </div>
+</div>
+
+
+
+
 
 {% endblock %}

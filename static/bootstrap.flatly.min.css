@@ -81,7 +81,7 @@
  [tabindex="-1"]:focus {
    outline: 0 !important;
  }
- 
+
  hr {
    -webkit-box-sizing: content-box;
            box-sizing: content-box;
@@ -5206,7 +5206,6 @@
  .jumbotron {
    padding: 2rem 1rem;
    margin-bottom: 2rem;
-   background-color: #ecf0f1;
    border-radius: 0.3rem;
    display: flex;
  }
