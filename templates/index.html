@@ -1,144 +1,78 @@
-{% extends "base.html" %}
 
-{% block title %}Home Page:{% endblock %}
-
-{% block styles %}
-<link href="{{url_for('static', filename = 'bootstrap.flatly.min.css')}}" rel="stylesheet">
-<style>
-.border-primary{
-    border: 1px solid gray;
-    border-radius: 5px;
-}
-.cyanColor{
-    color: #18BC9C !important;
-}
-.centeredStyle{
-    display: flex;
-    justify-content: center;
-}
-.noBackground{
-    background-color: transparent !important;
-}
-.mainContainer{
-width: 100%;
-display: flex;
-flex-direction: column;
-justify-content: center;
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Nature Website Project</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="../static/css/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="../static/css/bootstrap.css">
+    </head>
+<body>
+        <div class="navBarWrapper">
 
 
-}
-
-
-.grid-container {
-display: grid;
-grid-template-columns: 20% 60% 20%;
-grid-template-rows: auto auto auto;
-grid-template-areas: "LeftSideBar CenterArea RightSideBar" "LeftSideBar CenterArea RightSideBar" "LeftSideBar CenterArea RightSideBar";
-grid-column-gap: 5px;
-}
-
-.LeftSideBar {
-margin-top: 10%;
-  grid-area: LeftSideBar;
-  display: flex;
-  justify-content: center;
-}
-.bannerImage{
-    max-width: 100%;
-}
-.CenterArea { grid-area: CenterArea; 
-    display: flex;
-    justify-content: center;
-}
-
-.RightSideBar { grid-area: RightSideBar; 
-display: flex;
-justify-content: center;
-margin-top: 10%;
-}
-.bannerPicture{
-    opacity: 0.8;
-    display: flex;
-    justify-content: center;
-    
-}
-
-</style>
-
-{% endblock %}
-
-{% block content %}
-
-<div class="mainContainer">
-    <div class="bannerPicture">
-        <img src="../static/images/bannerPlitvice.jpg" class="bannerImage" alt="bannerPlitvice">
-    </div>
-<div class="grid-container">
-    <div class="LeftSideBar">
-
-        <div class="LeftInfo">
-               
-
-                <div class="card mb-3 whiteFont" style="max-width: 20rem;">
-                    <div class="card-header">Find your next location!</div>
-                    <div class="card-body">
-                      <h4 class="card-title">You can use the map here</h4>
-
-
-                      <p class="card-text"></p>
-                      
-
-                    </div>
-                  </div>
-                  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d45815.939840827756!2d15.213884740627458!3d44.13501190298983!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4761fa62d2c0b88f%3A0x12323e1c13f40784!2sZadar!5e0!3m2!1sen!2shr!4v1545916088847" width="100%" height="450" frameborder="0" style="border: 1px solid gray; border-radius: 3px;" allowfullscreen></iframe>
-                  
-
-
-        </div>
-    </div>
-    <div class="CenterArea">
-
-        <div class="jumbotron noBackground">
-            <h1 class="display-3 cyanColor">NEED A TRIP?</h1>
-                <p class="lead">This is the best place to find your next outdoor adventure!</p>
-                <hr class="my-4">
-                <p>Navigate the site to find the place that best suits your needs and get ready for backpacking!</p>
-                <p>You can use the map to locate your position and weather forecasts to plan your excursion.</p>
-                <p>Enjoy your trip!</p>
-                <p class="lead">
-                <p>Need a quick guide? Click the button below</p>
-                <a class="btn btn-primary btn-lg" href="#" role="button">Get Started</a>
-                 </p>
-        
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+                <a class="navbar-brand" href="#"></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+              
+                <div class="collapse navbar-collapse" id="navbarColor01">
+                  <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                      <a class="nav-link" href="./">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">Parks</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">Routes</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">About</a>
+                    </li>
+                  </ul>
+                  <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="text" placeholder="Search">
+                    <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+                  </form>
+                </div>
+              </nav>
         </div>
 
-    </div>
-    <div class="RightSideBar">
+
+        <div class="banner"></div>
+
+    <section class="wrapper">
         
-            <div class="card mb-3 whiteFont" style="max-width: 20rem;">
-                    <div class="card-header">Weather</div>
-                    <div class="card-body">
-                      <h4 class="card-title">{{ jsonWeather.name }}</h4>
-                      <img src="http://openweathermap.org/img/w/{{jsonWeather.weather[0].icon }}.png">
-                      <p class="card-text">{{jsonWeather.weather[0].description | capitalize }}
-                        <br>
-                        Temperature: {{jsonWeather.main.temp | int}} C°
-                        <br>
-                        Humidity: {{jsonWeather.main.humidity}}%
-                    
-                    
-                      </p>
-                    </div>
-                  </div>
-        
-                      
+        <div class="grid-container">
 
-    </div>
-</div>
-</div>
+                <div class="LeftColumn">
+                    This is the right column
+                     </div>
 
 
+                <div class="CenterColumn">
+                        <div class="generalTitle">A remarkable title</div>
+                        <div class="generalText">Lorem Ipsum is simply dummy text of the printing and typesetting
+                            industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                             when an unknown printer took a galley of type and scrambled it to make a type specimen 
+                             book. It has survived not only five centuries, but also the leap into electronic 
+                             typesetting, remaining essentially unchanged. It was popularised in the 1960s with 
+                             the release of Letraset sheets containing Lorem Ipsum passages, and more recently 
+                             with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum
+                         </div>
+                </div>
 
 
+                <div class="RightColumn"><h3 class="generalText">This is the right column</h3></div>
+        </div>
+    </section>
+    <script src="../static/js/bootstrap.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
 
-{% endblock %}
+</body>
+</html>

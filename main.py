@@ -8,15 +8,15 @@ bootstrap = Bootstrap(app)
 
 @app.route("/")
 def homepage():
+    return render_template("homepage.html")
 
-    return render_template("index.html", jsonWeather=getWeather(3186952))
- 
+@app.route("/index")
+def index():
+    return render_template("index.html")
 
 @app.route("/risnjak")
 def risnjak():
     return render_template("risnjak.html", jsonWeather=getWeather(3202104))
-
-
 
 
 def getWeather(id):

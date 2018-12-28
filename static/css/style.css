@@ -1,0 +1,147 @@
+/*
+import custom fonts from google apis
+*/
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+@import url('https://fonts.googleapis.com/css?family=Oswald');
+
+
+/*
+reset any default positioning by the browser
+*/
+html, body{
+    margin:0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.intro{
+    height: 100%;
+    width: 100%;
+    margin: auto;
+    background: url('../images/pexels-photo-917494.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    
+}
+
+.wrapper{
+    height: 100%;
+    width: 100%;
+    margin: auto;
+    display: flex;
+    background-size: cover;
+    justify-content: center;
+    top: 0;
+    background-color: #3e3f3a;
+}
+.banner{
+    background: url('../images/pexels-photo-167698.jpeg');
+    width: 100%;
+    height: 20%;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+
+.catchyQuoteText, .clickbaitTitleText, .catchyQuoteAuthor, .generalText, .generalTitle {
+    font-family: 'Raleway', sans-serif;
+}
+.generalText{
+    font-size: 30px;
+    color: white;
+}
+.generalTitle{
+    font-size: 26px;
+    color: white;
+}
+.catchyQuoteAuthor{
+    font-size:  16px;
+    color: #666;
+}
+.catchyQuoteText{
+    color: #666;
+    font-size: 20px;
+}
+.title{
+    margin-bottom: 30%;
+}
+.clickbaitTitleText{
+    color: white;
+    font-size: 5vmax;
+    text-shadow: 0px 0px 300px #000;
+    -webkit-text-stroke-color: black;
+}
+.content{
+    max-width: 500px;
+    text-align: center;
+}
+.quote{
+    margin-bottom: 30%;
+}
+.btn{
+    padding: 5px 10px;
+    color: white;
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.5vmax;
+    border: 2px solid white;
+    border-radius: 9px;
+    text-decoration: none;
+    text-transform: uppercase;
+
+}
+.btn:hover{
+    color: #ffe6cc;
+    border: 2px solid #ffe6cc;
+}
+
+.nav-link{
+    font-family: 'Oswald', sans-serif;
+    font-size: 20px !important;
+}
+
+
+
+
+
+
+
+
+
+
+.grid-container {
+    margin-top: 30px;
+    width: 80%;
+    display: grid;
+    grid-column-gap: 10px;
+    grid-template-columns: 25% 50% 25%;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas: "LeftColumn CenterColumn RightColumn" "LeftColumn CenterColumn RightColumn" "LeftColumn CenterColumn RightColumn";
+  }
+  
+  .LeftColumn {
+      grid-area: LeftColumn;
+      display: flex;
+      justify-content: center;
+
+    }
+  
+  .CenterColumn {
+      grid-area: CenterColumn;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+    
+    }
+  
+  .RightColumn {
+      grid-area: RightColumn;
+      display: flex;
+      justify-content: center;
+    }
+
+
